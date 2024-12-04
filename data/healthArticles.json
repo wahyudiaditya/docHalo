@@ -1,0 +1,26 @@
+[
+    {
+        "title": "Understanding Heart Disease",
+        "content": "Heart disease is a range of conditions that affect your heart. It is important to know the symptoms and causes.",
+        "author": "Dr. Jane Smith",
+        "createdAt": "2024-01-05T08:00:00Z",
+        "updatedAt": "2024-01-06T10:30:00Z",
+        "imageURL": "https://example.com/images/heart_disease.jpg"
+    },
+    {
+        "title": "Managing Diabetes Effectively",
+        "content": "Diabetes can be managed effectively with proper care, diet, and medication. Learn the key strategies for control.",
+        "author": "Dr. Michael Johnson",
+        "createdAt": "2024-02-10T08:00:00Z",
+        "updatedAt": "2024-02-12T11:00:00Z",
+        "imageURL": "https://example.com/images/diabetes_management.jpg"
+    },
+    {
+        "title": "Preventing Stroke: Tips and Guidelines",
+        "content": "Stroke is preventable in many cases. Follow these guidelines to reduce the risk of stroke and stay healthy.",
+        "author": "Dr. Susan Williams",
+        "createdAt": "2024-03-01T09:00:00Z",
+        "updatedAt": "2024-03-02T10:00:00Z",
+        "imageURL": "https://example.com/images/preventing_stroke.jpg"
+    }
+]

@@ -1,0 +1,125 @@
+[
+    {
+        "lastName": "Smith",
+        "specialization": "Cardiologist",
+        "contactNumber": "+9876543210",
+        "email": "dr.jane.smith@example.com",
+        "createdAt": "2024-01-01T09:00:00Z",
+        "updatedAt": "2024-01-05T12:00:00Z",
+        "username": "dr.jane.smith",
+        "password": "Password123"
+    },
+    {
+        "lastName": "Johnson",
+        "specialization": "Dermatologist",
+        "contactNumber": "+9876543220",
+        "email": "dr.michael.johnson@example.com",
+        "createdAt": "2024-02-01T09:30:00Z",
+        "updatedAt": "2024-02-10T13:00:00Z",
+        "username": "dr.michael.johnson",
+        "password": "Password123"
+    },
+    {
+        "lastName": "Williams",
+        "specialization": "Neurologist",
+        "contactNumber": "+9876543230",
+        "email": "dr.susan.williams@example.com",
+        "createdAt": "2024-03-01T10:00:00Z",
+        "updatedAt": "2024-03-05T14:00:00Z",
+        "username": "dr.susan.williams",
+        "password": "Password123"
+    },
+    {
+        "lastName": "Taylor",
+        "specialization": "Orthopedic Surgeon",
+        "contactNumber": "+9876543240",
+        "email": "dr.robert.taylor@example.com",
+        "createdAt": "2024-04-01T08:30:00Z",
+        "updatedAt": "2024-04-03T11:45:00Z",
+        "username": "dr.robert.taylor",
+        "password": "Password123"
+    },
+    {
+        "lastName": "Clark",
+        "specialization": "Pediatrician",
+        "contactNumber": "+9876543250",
+        "email": "dr.emily.clark@example.com",
+        "createdAt": "2024-05-01T11:00:00Z",
+        "updatedAt": "2024-05-05T14:00:00Z",
+        "username": "dr.emily.clark",
+        "password": "Password123"
+    },
+    {
+        "lastName": "Lopez",
+        "specialization": "General Practitioner",
+        "contactNumber": "+9876543260",
+        "email": "dr.daniel.lopez@example.com",
+        "createdAt": "2024-06-01T09:45:00Z",
+        "updatedAt": "2024-06-05T13:30:00Z",
+        "username": "dr.daniel.lopez",
+        "password": "Password123"
+    },
+    {
+        "lastName": "Mitchell",
+        "specialization": "Psychiatrist",
+        "contactNumber": "+9876543270",
+        "email": "dr.sarah.mitchell@example.com",
+        "createdAt": "2024-07-01T10:15:00Z",
+        "updatedAt": "2024-07-05T14:45:00Z",
+        "username": "dr.sarah.mitchell",
+        "password": "Password123"
+    },
+    {
+        "lastName": "Davis",
+        "specialization": "Ophthalmologist",
+        "contactNumber": "+9876543280",
+        "email": "dr.william.davis@example.com",
+        "createdAt": "2024-08-01T08:20:00Z",
+        "updatedAt": "2024-08-05T12:10:00Z",
+        "username": "dr.william.davis",
+        "password": "Password123"
+    },
+    {
+        "lastName": "Brown",
+        "specialization": "Gynecologist",
+        "contactNumber": "+9876543290",
+        "email": "dr.natalie.brown@example.com",
+        "createdAt": "2024-09-01T08:30:00Z",
+        "updatedAt": "2024-09-05T13:20:00Z",
+        "username": "dr.natalie.brown",
+        "password": "Password123"
+    },
+    {
+        "firstName": "Dr. David",
+        "lastName": "Moore",
+        "specialization": "Endocrinologist",
+        "contactNumber": "+9876543300",
+        "email": "dr.david.moore@example.com",
+        "createdAt": "2024-10-01T10:45:00Z",
+        "updatedAt": "2024-10-05T14:50:00Z",
+        "username": "dr.david.moore",
+        "password": "Password123"
+    },
+    {
+        "firstName": "Dr. Olivia",
+        "lastName": "Miller",
+        "specialization": "Gastroenterologist",
+        "contactNumber": "+9876543310",
+        "email": "dr.olivia.miller@example.com",
+        "createdAt": "2024-11-01T11:00:00Z",
+        "updatedAt": "2024-11-05T12:30:00Z",
+        "username": "dr.olivia.miller",
+        "password": "Password123"
+    },
+    {
+        "firstName": "Dr. James",
+        "lastName": "Wilson",
+        "specialization": "Pulmonologist",
+        "contactNumber": "+9876543320",
+        "email": "dr.james.wilson@example.com",
+        "createdAt": "2024-12-01T12:30:00Z",
+        "updatedAt": "2024-12-05T13:40:00Z",
+        "username": "dr.james.wilson",
+        "password": "Password123"
+    }
+]

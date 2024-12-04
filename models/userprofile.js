@@ -16,7 +16,8 @@ module.exports = (sequelize, DataTypes) => {
   UserProfile.init({
     addres: DataTypes.STRING,
     phoneNumber: DataTypes.STRING,
-    preferences: DataTypes.TEXT
+    preferences: DataTypes.TEXT,
+    UserId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'UserProfile',

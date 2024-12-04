@@ -1,0 +1,26 @@
+[
+    {
+        "DoctorId": 1,
+        "UserId": 1,
+        "appointmentDate": "2024-02-15T14:00:00Z",
+        "status": "confirmed",
+        "createdAt": "2024-01-10T15:30:00Z",
+        "updatedAt": "2024-01-10T15:30:00Z"
+    },
+    {
+        "DoctorId": 2,
+        "UserId": 2,
+        "appointmentDate": "2024-02-20T10:30:00Z",
+        "status": "confirmed",
+        "createdAt": "2024-02-12T14:20:00Z",
+        "updatedAt": "2024-02-12T14:20:00Z"
+    },
+    {
+        "DoctorId": 3,
+        "UserId": 3,
+        "appointmentDate": "2024-03-10T09:00:00Z",
+        "status": "pending",
+        "createdAt": "2024-03-05T14:00:00Z",
+        "updatedAt": "2024-03-05T14:00:00Z"
+    }
+]

@@ -1,0 +1,32 @@
+[
+    {
+        "UserId": 1,
+        "ArticleId": 1,
+        "createdAt": "2024-01-06T11:00:00Z",
+        "updatedAt": "2024-01-06T11:00:00Z"
+    },
+    {
+        "UserId": 1,
+        "ArticleId": 2,
+        "createdAt": "2024-02-12T11:20:00Z",
+        "updatedAt": "2024-02-12T11:20:00Z"
+    },
+    {
+        "UserId": 2,
+        "ArticleId": 3,
+        "createdAt": "2024-03-02T10:30:00Z",
+        "updatedAt": "2024-03-02T10:30:00Z"
+    },
+    {
+        "UserId": 3,
+        "ArticleId": 3,
+        "createdAt": "2024-03-02T10:45:00Z",
+        "updatedAt": "2024-03-02T10:45:00Z"
+    },
+    {
+        "UserId": 2,
+        "ArticleId": 1,
+        "createdAt": "2024-01-10T12:00:00Z",
+        "updatedAt": "2024-01-10T12:00:00Z"
+    }
+]
