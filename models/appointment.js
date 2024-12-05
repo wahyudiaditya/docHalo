@@ -22,15 +22,66 @@ module.exports = (sequelize, DataTypes) => {
 
       return `${day}-${month}-${year}`
     }
+
+    get getDay() {
+      const today = new Date();
+      const dateFounded = new Date(this.appointmentDate);
+
+      const differenceInMilliseconds = dateFounded - today;
+      const differenceInDays = differenceInMilliseconds / (1000 * 60 * 60 * 24);
+
+      return Math.floor(differenceInDays);
+    }
   }
   Appointment.init({
-    DoctorId: DataTypes.INTEGER,
-    UserId: DataTypes.INTEGER,
-    appointmentDate: DataTypes.DATE,
+    DoctorId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: 'DoctorId tidak boleh kosong'
+        },
+        notNull: {
+          msg: 'DoctorId tidak boleh kosong'
+        }
+      }
+    },
+    UserId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: 'UserId tidak boleh kosong'
+        },
+        notNull: {
+          msg: 'UserId tidak boleh kosong'
+        }
+      }
+    },
+    appointmentDate: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: 'Appointment Date tidak boleh kosong'
+        },
+        notNull: {
+          msg: 'Appointment Date tidak boleh kosong'
+        },
+        checkDay() {
+          if (this.getDay < 1) {
+            throw new Error('Anda hanya bisa menjadwalkan minimal 24 jam')
+          }
+        }
+      }
+    },
     status: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Appointment',
   });
+  Appointment.beforeCreate((instance) => {
+    instance.status = 'pending'
+  })
   return Appointment;
 };

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('../partials/scripts') %>
+        <title>Document</title>
+</head>
+
+<body>
+
+    <%- include('../partials/navbar') %>
+
+        <section>
+            <div class="container">
+                <div class="text-center pt-5">
+                    <p class="fs-2 fw-bold">List Appointment</p>
+                    <p class="fs-4 text-primary">
+                        <%= getNameUser.formatNameUser %>
+                    </p>
+
+                </div>
+
+                <% if (deleted) { %>
+                    <% let dataDeleted=deleted.split(';')%>
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            Appointment dengan <strong>
+                                <%= dataDeleted[0] %>
+                            </strong> pada tanggal <strong>
+                                <%= dataDeleted[1] %>
+                            </strong> telah dihapus.
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                            </button>
+                        </div>
+                        <% } %>
+                            <% if (appointmentUser.Doctors.length===0) { %>
+                                <p class="text-danger fs-4 pt-5">Belum ada Appointment-</p>
+                                <% }else{%>
+                                    <div class="d-flex justify-content-center align-items-center text-center">
+
+                                        <table class="table ms-5" style="width: 800px;">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">No</th>
+                                                    <th scope="col">Name</th>
+                                                    <th scope="col">Appointment Date</th>
+                                                    <th scope="col">Status</th>
+                                                    <th scope="col">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <% appointmentUser.Doctors.forEach(el=> { %>
+                                                    <tr>
+                                                        <th scope="row">
+                                                            <%= el.id %>
+                                                        </th>
+                                                        <td>
+                                                            <%= el.formatName %>
+                                                        </td>
+                                                        <td>
+                                                            <%= el.Appointment.formatAppointmentDate %>
+                                                        </td>
+                                                        <td>
+                                                            <%= el.Appointment.status %>
+                                                        </td>
+                                                        <td>
+                                                            <% if (el.Appointment.status==='pending' ||
+                                                                el.Appointment.status==='confirmed' ) { %>
+                                                                <a class="btn btn-warning btn-sm"
+                                                                    href="/user/<%= appointmentUser.id%>/doctor/listAppointment/<%= el.id %>/cancel">Batalkan
+                                                                    Appointment</a>
+                                                                <% }else{%>
+                                                                    <a class="btn btn-danger btn-sm"
+                                                                        href="/user/<%= appointmentUser.id%>/doctor/listAppointment/<%= el.id %>/delete"
+                                                                        onclick="return confirm('Jika anada menghapus Appointment maka data Appointment anda akan dihapus')">Hapus
+                                                                        Appointment</a>
+                                                                    <%} %>
+                                                        </td>
+                                                    </tr>
+                                                    <% }) %>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <%} %>
+
+            </div>
+        </section>
+</body>
+
+</html>

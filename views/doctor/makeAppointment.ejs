@@ -15,39 +15,76 @@
         <!-- Navbar -->
         <section>
             <div class="container pt-5">
+                <% if (isUserProfileValid.UserProfile) { %>
+                    <div class="text-center">
 
-                <a class="btn btn-warning btn-sm" href="/user/:userId/doctor/appointment">Buat
-                    Appointment</a>
-                <a class="btn btn-warning btn-sm" href="">Setujui Appointment</a>
-                <table class="table text-center">
-                    <thead>
-                        <tr>
-                            <th scope="col">No</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Specialization</th>
-                            <th scope="col">Contact Number</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <% doctors.forEach(el=> { %>
+                        <a class="btn btn-success btn-sm mx-2"
+                            href="/user/<%= doctorOrUser.id %>/doctor/appointment">Buat
+                            Appointment</a>
+                        <a class="btn btn-warning btn-sm mx-2"
+                            href="/user/<%= doctorOrUser.id %>/doctor/listAppointment">Lihat
+                            Appointment</a>
+                    </div>
 
-                            <tr>
-                                <th scope="row">
-                                    <%= el.id %>
-                                </th>
-                                <td>
-                                    <%= el.formatName %>
-                                </td>
-                                <td>
-                                    <%= el.specialization %>
-                                </td>
-                                <td>
-                                    <%= el.contactNumber %>
-                                </td>
-                            </tr>
-                            <% }) %>
-                    </tbody>
-                </table>
+                    <% }else{ %>
+                        <div class="text-center">
+                            <p class="fs-4 text-danger">
+                                Untuk melanjutkan Appointment, tolong lengkapi profile anda
+                            </p>
+                        </div>
+                        <%} %>
+
+                            <div class="d-flex pt-5">
+                                <div class="me-auto col-4">
+                                    <form class="search-box d-flex">
+                                        <input type="submit" class="btn btn-sm btn-info text-dark" value="Search Name">
+                                        <input name="name" type="text" class="form-control form-control-sm mx-2"
+                                            placeholder="Search by Name . . .">
+                                    </form>
+                                </div>
+
+                                <!-- Search Post -->
+                                <div class="col-4">
+                                    <form class="search-box d-flex">
+                                        <input name="specialization" type="text"
+                                            class="form-control form-control-sm mx-2"
+                                            placeholder="Search by Specialization . . .">
+                                        <input type="submit" class="btn btn-sm btn-info text-dark"
+                                            value="Search Specialization">
+                                    </form>
+                                </div>
+                                <!-- Search Post -->
+
+                            </div>
+                            <table class="table text-center mt-5">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">No</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Specialization</th>
+                                        <th scope="col">Contact Number</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% doctors.forEach(el=> { %>
+
+                                        <tr>
+                                            <th scope="row">
+                                                <%= el.id %>
+                                            </th>
+                                            <td>
+                                                <%= el.formatName %>
+                                            </td>
+                                            <td>
+                                                <%= el.specialization %>
+                                            </td>
+                                            <td>
+                                                <%= el.contactNumber %>
+                                            </td>
+                                        </tr>
+                                        <% }) %>
+                                </tbody>
+                            </table>
             </div>
         </section>
 </body>

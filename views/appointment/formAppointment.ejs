@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('../partials/scripts') %>
+        <title>Document</title>
+</head>
+
+<body>
+
+    <%- include('../partials/navbar') %>
+
+        <section>
+            <div class="container">
+                <div class="pt-5">
+                    <div class="text-center fw-bold">
+                        <p class="fs-1">Formulir Appointment</p>
+                    </div>
+                    <!-- Validate if error exists -->
+                    <% if(error){ %>
+                        <% error.split(',').forEach(el=> { %>
+                            <p class="text-danger text-error"><small>
+                                    *<%= el %>
+                                </small></p>
+                            <% }) %>
+                                <%} %>
+                                    <!-- Validate if error exists -->
+
+                                    <form class="pt-3" method="post"
+                                        action="/user/<%= doctorOrUser.id %>/doctor/appointment">
+                                        <div class="form-group">
+                                            <label>Pilih Dokter</label>
+                                            <select class="form-select" name="DoctorId">
+                                                <% doctor.forEach(el=> { %>
+                                                    <option value="<%= el.id %>">
+                                                        <%= el.formatName %> - <%= el.specialization %>
+                                                    </option>
+                                                    <% }) %>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group pt-3">
+                                            <label>Pilih Tanggal Appointment</label>
+                                            <input type="date" class="form-control" name="appointmentDate" required>
+                                        </div>
+                                        <div class="text-center pt-5">
+                                            <input type="submit" class="btn btn-sm btn-warning" value="Submit">
+                                        </div>
+
+                                    </form>
+                </div>
+
+            </div>
+        </section>
+
+        </script>
+</body>
+
+</html>

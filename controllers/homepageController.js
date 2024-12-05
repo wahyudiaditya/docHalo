@@ -1,5 +1,4 @@
 const validateDoctorOrUser = require("../helpers/isLoginDoctorOrUser")
-const validateIsLogin = require("../helpers/isLoginValidate")
 
 class HomepageController {
     static async homepage(req, res) {

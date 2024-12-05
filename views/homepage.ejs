@@ -30,11 +30,22 @@
                                     molestias ullam, quod modi omnis aspernatur sunt necessitatibus praesentium.</p>
                             </div>
                             <div>
-                                <button class="bg-info btn" style="border-radius: 0" type="button"><a
-                                        class="text-decoration-none text-white" href="/doctor">Make A
-                                        Appointment</a></button>
-                                <button class="btn btn-outline-info mx-2 " style="border-radius: 0" type="button"><a
-                                        class="text-decoration-none text-dark " href="">View Article</a></button>
+                                <% if (doctorOrUser) { %>
+                                    <% if (doctorOrUser.role) { %>
+                                        <button class="bg-info btn" style="border-radius: 0" type="button"><a
+                                                class="text-decoration-none text-white"
+                                                href="/user/<%= doctorOrUser.id %>/doctor">Make
+                                                Appointment</a></button>
+                                        <% }%>
+                                            <% }else{%>
+                                                <button class="bg-info btn" style="border-radius: 0" type="button"><a
+                                                        class="text-decoration-none text-white" href="/doctor">Make
+                                                        Appointment</a></button>
+                                                <%} %>
+                                                    <button class="btn btn-outline-info mx-2 " style="border-radius: 0"
+                                                        type="button"><a class="text-decoration-none text-dark "
+                                                            href="">View
+                                                            Article</a></button>
                             </div>
                         </div>
                     </div>

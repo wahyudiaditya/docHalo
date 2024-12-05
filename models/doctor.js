@@ -32,7 +32,6 @@ module.exports = (sequelize, DataTypes) => {
         getErrors.msg.push('Username or password invalid')
       } else {
         const isPasswordValid = await bcrypt.compare(password, getDoctor.password)
-        console.log(isPasswordValid)
         if (!isPasswordValid) {
           getErrors.msg.push('Username or password invalid')
         }

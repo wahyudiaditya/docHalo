@@ -1,4 +1,4 @@
-const isLogin = (req, res, next) => {
+const isLoginUser = (req, res, next) => {
     if (!req.session.user) {
         let error = 'Please Login First!'
         return res.redirect('/login?error=' + error)
@@ -6,16 +6,23 @@ const isLogin = (req, res, next) => {
     next()
 }
 
-const permissionAdmin = (req, res, next) => {
-    if (req.session.user.role !== 'admin') {
-        let error = 'You have no access'
-        return res.redirect('/?error=' + error)
+const isLoginDockter = (req, res, next) => {
+    if (!req.session.doctor) {
+        let error = 'Please Login First!'
+        return res.redirect('/login?error=' + error)
+    }
+    next()
+}
+const loginTrue = (req, res, next) => {
+    if (req.session.user || req.session.doctor) {
+        return res.redirect('/')
     }
     next()
 }
 
 
 module.exports = {
-    isLogin,
-    permissionAdmin
+    isLoginUser,
+    isLoginDockter,
+    loginTrue
 }

@@ -3,7 +3,8 @@ class LoginController {
 
     static async loginUser(req, res) {
         try {
-            res.render('login/loginUser')
+            const { error } = req.query
+            res.render('login/loginUser', { error })
         } catch (error) {
             res.send(error)
         }
@@ -28,7 +29,8 @@ class LoginController {
 
     static async registerForm(req, res) {
         try {
-            res.render('login/register')
+            const { error } = req.query
+            res.render('login/register', { error })
         } catch (error) {
             res.send(error)
         }
@@ -37,12 +39,15 @@ class LoginController {
     static async saveRegister(req, res) {
         try {
             const { username, password, email } = req.body
-            const registerIsValid = await User.checkRegister(username, password)
-            if (!registerIsValid) {
-                await User.create({ username, password, email })
-                res.redirect('/login')
-            }
+            await User.create({ username, password, email })
+            res.redirect('/login')
         } catch (error) {
+            if (error.name === 'SequelizeValidationError') {
+                const err = error.errors.map(el => {
+                    return el.message
+                })
+                return res.redirect('/login/register?error=' + err)
+            }
             res.send(error)
         }
     }

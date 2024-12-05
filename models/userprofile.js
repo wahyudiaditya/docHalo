@@ -28,6 +28,15 @@ module.exports = (sequelize, DataTypes) => {
 
       return `${year}-${month}-${day}`
     }
+
+    get getAge() {
+      const today = new Date()
+      const dateFounded = new Date(this.bornDate)
+      const ageInMilliseconds = today - dateFounded
+
+      const ageInYears = ageInMilliseconds / (1000 * 60 * 60 * 24 * 365)
+      return Math.floor(ageInYears)
+    }
   }
   UserProfile.init({
     address: {
@@ -58,7 +67,7 @@ module.exports = (sequelize, DataTypes) => {
           msg: 'Phone Number tidak boleh kosong'
         },
         cekPhoneNumber(value) {
-          if (value.length < 5) {
+          if (value.length < 11) {
             throw new Error('Phone Number minimum 11 karakter')
           }
         }
@@ -119,6 +128,11 @@ module.exports = (sequelize, DataTypes) => {
         },
         notNull: {
           msg: 'Born Date tidak boleh kosong'
+        },
+        verifyAge() {
+          if (this.getAge < 0) {
+            throw new Error('Usia minimal 0 tahun')
+          }
         }
       }
     },

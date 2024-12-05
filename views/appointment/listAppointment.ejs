@@ -33,7 +33,7 @@
                             <table class="table ms-5" style="width: 800px;">
                                 <thead>
                                     <tr>
-                                        <th scope="col">No</th>
+                                        <th scope="col">Id</th>
                                         <th scope="col">Name</th>
                                         <th scope="col">Appointment Date</th>
                                         <th scope="col">Action</th>
@@ -54,13 +54,16 @@
                                             <td>
                                                 <% if (el.Appointment.status==='pending' ) { %>
                                                     <a class="btn btn-warning btn-sm"
-                                                        href="/doctor/appointment/<%= doctorAppointment.id %>/approve/<%= el.id %>">Setuji
-                                                        appointment</a>
-                                                    <% }else{%>
-                                                        <a class="btn btn-success btn-sm disabled" href=""
-                                                            disabled>Appointment
-                                                            Disetujui</a>
-                                                        <%} %>
+                                                        href="/doctor/appointment/<%= doctorAppointment.id %>/approve/<%= el.id %>">Setujui
+                                                        Appointment</a>
+                                                    <% }else if(el.Appointment.status==='cancel' ){%>
+                                                        <a class="btn btn-danger btn-sm disabled" href=""
+                                                            disabled>Appointment Dibatalkan</a>
+                                                        <%}else{%>
+                                                            <a class="btn btn-success btn-sm"
+                                                                href="/doctor/appointment/<%= doctorAppointment.id %>/cancel/<%= el.id %>">Appointment
+                                                                Disetujui</a>
+                                                            <%} %>
                                             </td>
                                         </tr>
                                         <% }) %>

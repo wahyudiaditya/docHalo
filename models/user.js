@@ -43,30 +43,6 @@ module.exports = (sequelize, DataTypes) => {
       return getUser
     }
 
-    static async checkRegister(username, password) {
-      const getUser = await User.findOne({
-        where: {
-          username
-        }
-      })
-      let getErrors = {
-        name: 'errorLogin',
-        msg: []
-      }
-      if (getUser) {
-        getErrors.msg.push('Username sudah ada, tolong pakai username lain')
-      } else if (password.length < 8) {
-        getErrors.msg.push('Password minimum 8 karakter')
-      }
-
-      if (getErrors.msg.length > 0) {
-        throw getErrors
-      }
-
-      return getUser
-    }
-
-
   }
   User.init({
     username: {
@@ -79,9 +55,13 @@ module.exports = (sequelize, DataTypes) => {
         notNull: {
           msg: 'Username tidak boleh kosong'
         },
-        cekUsername(value) {
+        async cekUsername(value) {
           if (value.length < 5) {
-            throw new Error('Username minimum 5 karakter')
+            throw new Error('Username minimum 5 karakter');
+          }
+          const existingUser = await User.findOne({ where: { username: value } });
+          if (existingUser) {
+            throw new Error('Username sudah ada tolong pakai username lain gan');
           }
         }
       }
@@ -89,21 +69,25 @@ module.exports = (sequelize, DataTypes) => {
     email: {
       type: DataTypes.STRING,
       allowNull: false,
-      notEmpty: {
-        msg: 'Email tidak boleh kosong'
-      },
-      notNull: {
-        msg: 'Email tidak boleh kosong'
+      validate: {
+        notEmpty: {
+          msg: 'Email tidak boleh kosong'
+        },
+        notNull: {
+          msg: 'Email tidak boleh kosong'
+        }
       }
     },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
-      notEmpty: {
-        msg: 'Password tidak boleh kosong'
-      },
-      notNull: {
-        msg: 'Password tidak boleh kosong'
+      validate: {
+        notEmpty: {
+          msg: 'Password tidak boleh kosong'
+        },
+        notNull: {
+          msg: 'Password tidak boleh kosong'
+        }
       },
       cekPassword(value) {
         if (value.length < 8) {

@@ -38,7 +38,6 @@ class DoctorController {
             } else {
                 doctors = await Doctor.findByPk(doctorOrUser.id)
             }
-            console.log(doctorOrUser)
             res.render('doctor/getAllDoctor', { doctors, doctorOrUser })
         } catch (error) {
             res.send(error)
@@ -60,7 +59,6 @@ class DoctorController {
                     attributes: { exclude: ['password'] }
                 }
             })
-            // res.send(doctorAppointment)
             res.render('appointment/listAppointment', { doctorAppointment, doctorOrUser })
         } catch (error) {
             res.send(error)
@@ -78,6 +76,24 @@ class DoctorController {
                 },
             })
             await appointment.update({ status: 'confirmed' });
+            res.redirect('/doctor/appointment/' + id)
+        } catch (error) {
+            res.send(error)
+        }
+    }
+
+    static async doctorCancel(req, res) {
+        try {
+            const { userId, id } = req.params
+
+            const appointment = await Appointment.findOne({
+                where: {
+                    DoctorId: id,
+                    UserId: userId,
+                    status: { [Op.in]: ['pending', 'confirmed'] }
+                },
+            })
+            await appointment.update({ status: 'cancel' });
             res.redirect('/doctor/appointment/' + id)
         } catch (error) {
             res.send(error)
