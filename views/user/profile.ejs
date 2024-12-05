@@ -13,11 +13,15 @@
     <%- include('../partials/navbarProfile') %>
 
         <section>
-            <div class=" container">
+            <div class=" container pt-5">
                 <div class="text-center">
                     <div>
-                        <a class="btn btn-dark" href="">Create Profile</a>
-                        <a href="">Edit Profile</a>
+                        <% if (!userProfile) { %>
+                            <a class="btn btn-success" href="/user/<%= userId %>/profiles/add">Create Profile</a>
+                            <% }else{ %>
+
+                                <a class="btn btn-info" href="/user/<%= userId %>/profiles/edit">Edit Profile</a>
+                                <% } %>
                     </div>
                 </div>
             </div>

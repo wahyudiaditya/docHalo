@@ -18,14 +18,110 @@ module.exports = (sequelize, DataTypes) => {
     get formatNameUser() {
       return `${this.firstName} ${this.lastName}`
     }
+
+    formatBornDate() {
+      const date = new Date(this.bornDate)
+
+      const year = date.getFullYear()
+      const month = String(date.getMonth() + 1).padStart(2, '0')
+      const day = String(date.getDate()).padStart(2, '0')
+
+      return `${year}-${month}-${day}`
+    }
   }
   UserProfile.init({
-    address: DataTypes.STRING,
-    phoneNumber: DataTypes.STRING,
-    firstName: DataTypes.STRING,
-    lastName: DataTypes.STRING,
-    gender: DataTypes.STRING,
-    bornDate: DataTypes.DATE,
+    address: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: 'Address tidak boleh kosong'
+        },
+        notNull: {
+          msg: 'Address tidak boleh kosong'
+        },
+        cekAddress(value) {
+          if (value.length < 5) {
+            throw new Error('Address minimum 5 karakter')
+          }
+        }
+      }
+    },
+    phoneNumber: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: 'Phone Number tidak boleh kosong'
+        },
+        notNull: {
+          msg: 'Phone Number tidak boleh kosong'
+        },
+        cekPhoneNumber(value) {
+          if (value.length < 5) {
+            throw new Error('Phone Number minimum 11 karakter')
+          }
+        }
+      }
+    },
+    firstName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: 'First Name tidak boleh kosong'
+        },
+        notNull: {
+          msg: 'First Name tidak boleh kosong'
+        },
+        cekFirstName(value) {
+          if (value.length < 5) {
+            throw new Error('First Name minimum 5 karakter')
+          }
+        }
+      }
+    },
+    lastName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: 'Last Name tidak boleh kosong'
+        },
+        notNull: {
+          msg: 'Last Name tidak boleh kosong'
+        },
+        cekFirstName(value) {
+          if (value.length < 5) {
+            throw new Error('Last Name minimum 5 karakter')
+          }
+        }
+      }
+    },
+    gender: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: 'Gender tidak boleh kosong'
+        },
+        notNull: {
+          msg: 'Gender tidak boleh kosong'
+        }
+      }
+    },
+    bornDate: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: 'Born Date tidak boleh kosong'
+        },
+        notNull: {
+          msg: 'Born Date tidak boleh kosong'
+        }
+      }
+    },
     UserId: DataTypes.INTEGER
   }, {
     sequelize,

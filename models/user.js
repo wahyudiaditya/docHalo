@@ -66,12 +66,7 @@ module.exports = (sequelize, DataTypes) => {
       return getUser
     }
 
-    async formatNameUser(id) {
-      const user = await User.findByPk(id, {
-        include: sequelize.models.UserProfile
-      })
-      return `${user.firstName} ${user.lastName}`
-    }
+
   }
   User.init({
     username: {

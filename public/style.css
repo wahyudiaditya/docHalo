@@ -1,0 +1,12 @@
+body {
+    background-image: url("/asset/blur.jpg");
+}
+
+.background-navbar{
+    background-color:#FFFDD0;
+}
+
+.table-radius{
+    border-radius: 6px; !important
+    overflow: hidden;
+}

@@ -1,27 +1,36 @@
 <!-- Navbar -->
 <section>
-    <div class="bg-warning" style="height: 80px;">
+    <div class="bg-dark bg-opacity-10" style="height: 80px;">
         <div class="container">
             <div class="d-flex">
                 <div class="mt-3 fw-bold me-auto fs-3">
                     <a class="text-dark text-decoration-none" href="/">DocHalo</a>
                 </div>
+
                 <div class="mt-4 fw-bold">
                     <a class="text-dark text-decoration-none me-4" href="/">Home</a>
-                    <a class="text-dark text-decoration-none me-4" href="/doctor">Doctors</a>
                     <% if (doctorOrUser) { %>
                         <% if (doctorOrUser.role) { %>
                             <% if (doctorOrUser.role==='user' ) { %>
                                 <a class="text-dark text-decoration-none me-4"
                                     href="/user/<%= doctorOrUser.id %>/profiles">Profile</a>
-                                <% } %>
-                                    <% } %>
-                                        <a class="text-dark text-decoration-none me-4" href="/login/logout">logout</a>
-
-
+                                <a class="text-dark text-decoration-none me-4"
+                                    href="/user/<%= doctorOrUser.id %>/doctor">Doctors</a>
+                                <% } else{%>
+                                    <a class="text-dark text-decoration-none me-4" href="/">Dashboard</a>
+                                    <%} %>
                                         <% }else{%>
-                                            <a class="text-dark text-decoration-none me-4" href="/login">login</a>
+
+                                            <a class="text-dark text-decoration-none me-4" href="/doctor">Doctors</a>
                                             <%} %>
+                                                <a class="text-dark text-decoration-none me-4"
+                                                    href="/login/logout">logout</a>
+
+
+                                                <% }else{%>
+                                                    <a class="text-dark text-decoration-none me-4"
+                                                        href="/login">login</a>
+                                                    <%} %>
 
                 </div>
             </div>
