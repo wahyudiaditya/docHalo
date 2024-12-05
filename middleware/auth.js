@@ -1,7 +1,7 @@
 const isLogin = (req, res, next) => {
     if (!req.session.user) {
         let error = 'Please Login First!'
-        return res.redirect('/user/login?error=' + error)
+        return res.redirect('/login?error=' + error)
     }
     next()
 }
@@ -9,7 +9,7 @@ const isLogin = (req, res, next) => {
 const permissionAdmin = (req, res, next) => {
     if (req.session.user.role !== 'admin') {
         let error = 'You have no access'
-        return res.redirect('/incubators?error=' + error)
+        return res.redirect('/?error=' + error)
     }
     next()
 }

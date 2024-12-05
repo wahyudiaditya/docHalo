@@ -16,6 +16,7 @@ module.exports = {
       return {
         contactNumber: el.contactNumber,
         specialization: el.specialization,
+        firstName: el.firstName,
         lastName: el.lastName,
         username: el.username,
         email: el.email,

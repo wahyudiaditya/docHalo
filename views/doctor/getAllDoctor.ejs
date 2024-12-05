@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('../partials/scripts') %>
+        <title>Document</title>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <%- include('../partials/navbar') %>
+        <!-- Navbar -->
+        <section>
+            <div class="container pt-5">
+
+                <table class="table text-center">
+                    <thead>
+                        <tr>
+                            <th scope="col">No</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Specialization</th>
+                            <th scope="col">Contact Number</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if (doctorOrUser.role) { %>
+                            <% doctors.forEach(el=> { %>
+
+                                <tr>
+                                    <th scope="row">
+                                        <%= el.id %>
+                                    </th>
+                                    <td>
+                                        <%= el.formatName %>
+                                    </td>
+                                    <td>
+                                        <%= el.specialization %>
+                                    </td>
+                                    <td>
+                                        <%= el.contactNumber %>
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-warning btn-sm" href="">Buat Appointment</a>
+                                        <a class="btn btn-warning btn-sm" href="">Setuji appointment</a>
+                                    </td>
+                                </tr>
+                                <% }) %>
+                                    <% } else {%>
+                                        <tr>
+                                            <th scope="row">
+                                                <%= doctors.id %>
+                                            </th>
+                                            <td>
+                                                <%= doctors.formatName %>
+                                            </td>
+                                            <td>
+                                                <%= doctors.specialization %>
+                                            </td>
+                                            <td>
+                                                <%= doctors.contactNumber %>
+                                            </td>
+                                            <td>
+                                                <a class="btn btn-success btn-sm"
+                                                    href="/doctor/appointment/<%= doctors.id %>">Lihat Appointment</a>
+                                            </td>
+                                        </tr>
+                                        <%}%>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+</body>
+
+</html>

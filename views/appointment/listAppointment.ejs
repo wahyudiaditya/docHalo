@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('../partials/scripts') %>
+        <title>Document</title>
+</head>
+
+<body>
+
+    <%- include('../partials/navbar') %>
+
+        <section>
+            <div class="container">
+                <div class="text-center pt-5">
+                    <p class="fs-2 fw-bold">List Appointment</p>
+                    <p class="fs-4 text-primary">
+                        <%= doctorAppointment.formatName %>
+                    </p>
+                    <p class="fs-5">
+                        Specialization <%= doctorAppointment.specialization %>
+                    </p>
+
+                </div>
+
+                <% if (doctorAppointment.Users.length===0) { %>
+                    <p class="text-danger">There is no Appointment yet-</p>
+                    <% }else{%>
+                        <div class="d-flex justify-content-center align-items-center text-center">
+
+                            <table class="table ms-5" style="width: 800px;">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">No</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Appointment Date</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% doctorAppointment.Users.forEach(el=> { %>
+                                        <tr>
+                                            <th scope="row">
+                                                <%= el.id %>
+                                            </th>
+                                            <td>
+                                                <%= el.UserProfile.formatNameUser %>
+                                            </td>
+                                            <td>
+                                                <%= el.Appointment.formatAppointmentDate %>
+                                            </td>
+                                            <td>
+                                                <% if (el.Appointment.status==='pending' ) { %>
+                                                    <a class="btn btn-warning btn-sm"
+                                                        href="/doctor/appointment/<%= doctorAppointment.id %>/approve/<%= el.id %>">Setuji
+                                                        appointment</a>
+                                                    <% }else{%>
+                                                        <a class="btn btn-success btn-sm disabled" href=""
+                                                            disabled>Appointment
+                                                            Disetujui</a>
+                                                        <%} %>
+                                            </td>
+                                        </tr>
+                                        <% }) %>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <%} %>
+
+            </div>
+        </section>
+</body>
+
+</html>

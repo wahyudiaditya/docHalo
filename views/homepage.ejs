@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('./partials/scripts') %>
+        <link rel="stylesheet" href="/style.css">
+        <title>Document</title>
+</head>
+
+<body>
+
+    <%- include('./partials/navbar') %>
+
+        <section>
+            <div class="d-flex">
+                <div class="image-container">
+                    <img src="/pexels-karolina-grabowska-4021769.jpg" style="height: 100vh;" alt="" srcset="">
+                </div>
+                <div class="position-absolute pt-5 ps-5">
+                    <% if (getRole) { %>
+                        <% if(getRole==='admin' ) {%>
+                            <a class="btn btn-primary" href="">Dashboard</a>
+                            <%}%>
+                                <% } %>
+                </div>
+            </div>
+        </section>
+</body>
+
+</html>

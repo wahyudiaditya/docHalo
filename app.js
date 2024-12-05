@@ -1,8 +1,10 @@
 const express = require('express')
 const app = express()
-const port = 3000
+const port = 3003
 const router = require('./routers/index')
+const session = require('express-session')
 
+app.use(express.static(__dirname + '/public'));
 app.use(express.urlencoded({ extended: true }))
 app.set('view engine', 'ejs')
 

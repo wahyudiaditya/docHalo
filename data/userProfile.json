@@ -1,25 +1,34 @@
 [
     {
         "UserId": 1,
+        "firstName": "Wahyudi",
+        "lastName": "Aditya Pratama",
+        "gender": "Male",
+        "bornDate": "1999-01-20",
         "address": "123 Main St, Springfield, IL",
         "phoneNumber": "+1234567890",
-        "preferences": "No dairy, prefer vegetarian meals.",
         "createdAt": "2024-01-01T10:00:00Z",
         "updatedAt": "2024-01-10T15:00:00Z"
     },
     {
         "UserId": 2,
+        "firstName": "Erlangga",
+        "lastName": "Christ",
+        "gender": "Male",
+        "bornDate": "2005-02-14",
         "address": "456 Oak St, Chicago, IL",
         "phoneNumber": "+1987654321",
-        "preferences": "Low carb, prefers early appointments.",
         "createdAt": "2024-02-01T11:00:00Z",
         "updatedAt": "2024-02-10T14:00:00Z"
     },
     {
         "UserId": 3,
+        "firstName": "Jhon",
+        "lastName": "Ceeennaaaa",
+        "gender": "Male",
+        "bornDate": "1978-11-21",
         "address": "789 Pine St, Madison, WI",
         "phoneNumber": "+1122334455",
-        "preferences": "No gluten, enjoys evening appointments.",
         "createdAt": "2024-03-01T12:00:00Z",
         "updatedAt": "2024-03-10T16:00:00Z"
     }

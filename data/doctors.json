@@ -1,5 +1,6 @@
 [
     {
+        "firstName": "Jane",
         "lastName": "Smith",
         "specialization": "Cardiologist",
         "contactNumber": "+9876543210",
@@ -10,6 +11,7 @@
         "password": "Password123"
     },
     {
+        "firstName": "Michael",
         "lastName": "Johnson",
         "specialization": "Dermatologist",
         "contactNumber": "+9876543220",
@@ -20,6 +22,7 @@
         "password": "Password123"
     },
     {
+        "firstName": "Susan",
         "lastName": "Williams",
         "specialization": "Neurologist",
         "contactNumber": "+9876543230",
@@ -30,6 +33,7 @@
         "password": "Password123"
     },
     {
+        "firstName": "Robert",
         "lastName": "Taylor",
         "specialization": "Orthopedic Surgeon",
         "contactNumber": "+9876543240",
@@ -40,6 +44,7 @@
         "password": "Password123"
     },
     {
+        "firstName": "Emily",
         "lastName": "Clark",
         "specialization": "Pediatrician",
         "contactNumber": "+9876543250",
@@ -50,6 +55,7 @@
         "password": "Password123"
     },
     {
+        "firstName": "Daniel",
         "lastName": "Lopez",
         "specialization": "General Practitioner",
         "contactNumber": "+9876543260",
@@ -60,6 +66,7 @@
         "password": "Password123"
     },
     {
+        "firstName": "Sarah",
         "lastName": "Mitchell",
         "specialization": "Psychiatrist",
         "contactNumber": "+9876543270",
@@ -70,6 +77,7 @@
         "password": "Password123"
     },
     {
+        "firstName": "William",
         "lastName": "Davis",
         "specialization": "Ophthalmologist",
         "contactNumber": "+9876543280",
@@ -80,6 +88,7 @@
         "password": "Password123"
     },
     {
+        "firstName": "Natalie",
         "lastName": "Brown",
         "specialization": "Gynecologist",
         "contactNumber": "+9876543290",
@@ -90,7 +99,7 @@
         "password": "Password123"
     },
     {
-        "firstName": "Dr. David",
+        "firstName": "David",
         "lastName": "Moore",
         "specialization": "Endocrinologist",
         "contactNumber": "+9876543300",
@@ -101,7 +110,7 @@
         "password": "Password123"
     },
     {
-        "firstName": "Dr. Olivia",
+        "firstName": "Olivia",
         "lastName": "Miller",
         "specialization": "Gastroenterologist",
         "contactNumber": "+9876543310",
@@ -112,14 +121,14 @@
         "password": "Password123"
     },
     {
-        "firstName": "Dr. James",
+        "firstName": "James",
         "lastName": "Wilson",
         "specialization": "Pulmonologist",
         "contactNumber": "+9876543320",
         "email": "dr.james.wilson@example.com",
         "createdAt": "2024-12-01T12:30:00Z",
         "updatedAt": "2024-12-05T13:40:00Z",
-        "username": "dr.james.wilson",
-        "password": "Password123"
+        "username": "dokter",
+        "password": "password123"
     }
 ]
