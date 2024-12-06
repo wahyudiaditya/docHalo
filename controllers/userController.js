@@ -8,6 +8,10 @@ class UserController {
         try {
             const { userId } = req.params
             const userProfile = await UserProfile.findOne({
+                include: {
+                    model: User,
+                    attributes: { exclude: ['password'] }
+                },
                 where: {
                     UserId: userId
                 }

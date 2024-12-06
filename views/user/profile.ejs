@@ -16,13 +16,73 @@
 
         <section>
             <div class=" container pt-5">
-                <div class="text-center">
+                <div>
                     <div>
                         <% if (!userProfile) { %>
                             <a class="btn btn-success" href="/user/<%= userId %>/profiles/add">Create Profile</a>
                             <% }else{ %>
 
                                 <a class="btn btn-info" href="/user/<%= userId %>/profiles/edit">Edit Profile</a>
+                                <form class="container rounded bg-white mt-5 mb-5">
+
+                                    <div class="row">
+                                        <div class="col-md-3 border-right">
+                                            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img
+                                                    class="rounded-circle mt-5" width="150px"
+                                                    src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span
+                                                    class="font-weight-bold">
+                                                    <%= userProfile.User.username %>
+                                                </span><span class="text-black-50">
+                                                    <%= userProfile.User.email %>
+                                                </span><span>
+                                                </span></div>
+                                        </div>
+                                        <div class="col-md-5 border-right">
+                                            <div class="p-3 py-5">
+                                                <div class="d-flex  mb-3">
+                                                    <h4 class="text-right">My Profile</h4>
+                                                </div>
+
+                                                <div class="d-flex mb-3">
+                                                    <span class="label" style="width: 144px;">Nama </span>
+                                                    <span class="ms-5">
+                                                        <%= userProfile.formatNameUser %>
+                                                    </span>
+                                                </div>
+
+                                                <div class="d-flex mb-3">
+                                                    <span class="label" style="width: 144px;">Address </span>
+                                                    <span class="ms-5">
+                                                        <%= userProfile.address %>
+                                                    </span>
+                                                </div>
+
+                                                <div class="d-flex mb-3">
+                                                    <span class="label" style="width: 144px;">Phone Number </span>
+                                                    <span class="ms-5">
+                                                        <%= userProfile.phoneNumber%>
+                                                    </span>
+                                                </div>
+
+                                                <div class="d-flex mb-3">
+                                                    <span class="label" style="width: 144px;">Gender </span>
+                                                    <span class="ms-5">
+                                                        <%= userProfile.gender %>
+                                                    </span>
+                                                </div>
+
+                                                <div class="d-flex mb-3">
+                                                    <span class="label" style="width: 144px;">Born Date </span>
+                                                    <span class="ms-5">
+                                                        <%= userProfile.formatBornDateforProfile() %>
+                                                    </span>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+
                                 <% } %>
                     </div>
                 </div>
