@@ -6,7 +6,8 @@ class DoctorController {
 
     static async loginDoctor(req, res) {
         try {
-            res.render('login/loginDoctor')
+            const { error } = req.query
+            res.render('login/loginDoctor', { error })
         } catch (error) {
             res.send(error)
         }

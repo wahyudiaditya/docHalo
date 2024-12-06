@@ -10,10 +10,18 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       DoctorId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          model: "Doctors",
+          key: "id",
+        }
       },
       UserId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          model: "Users",
+          key: "id",
+        },
       },
       appointmentDate: {
         type: Sequelize.DATE

@@ -15,6 +15,7 @@ routerUser.get('/:userId/doctor/appointment', UserController.makeAppointment)
 routerUser.post('/:userId/doctor/appointment', UserController.saveAppointment)
 routerUser.get('/:userId/doctor/listAppointment', UserController.listAppointmentUser)
 routerUser.get('/:userId/doctor/listAppointment/:id/cancel', UserController.cancelAppointmentUser)
+routerUser.get('/:userId/doctor/listAppointment/:id/invoice', UserController.appointmentInvoice)
 routerUser.get('/:userId/doctor/listAppointment/:id/delete', UserController.deleteAppointment)
 
 

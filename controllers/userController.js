@@ -1,6 +1,7 @@
 const { UserProfile, User, Doctor, Appointment } = require("../models")
 const validateDoctorOrUser = require('../helpers/isLoginDoctorOrUser')
 const { Op } = require('sequelize')
+const PDFDocument = require('pdfkit');
 
 class UserController {
     static async profie(req, res) {
@@ -159,8 +160,8 @@ class UserController {
     static async saveAppointment(req, res) {
         try {
             const { userId } = req.params
-            const { DoctorId, appointmentDate } = req.body
-            await Appointment.create({ DoctorId, appointmentDate, UserId: userId })
+            const { DoctorId, appointmentDate, location } = req.body
+            await Appointment.create({ DoctorId, appointmentDate, location, UserId: userId })
             res.redirect(`/user/${userId}/doctor`)
         } catch (error) {
             const { userId } = req.params
@@ -259,6 +260,60 @@ class UserController {
         }
     }
 
+    static async appointmentInvoice(req, res) {
+        try {
+            const { userId, id } = req.params
+            const appointment = await Appointment.findOne({
+                where: {
+                    DoctorId: id,
+                    UserId: userId,
+                },
+                include: [
+                    {
+                        model: Doctor,
+                        attributes: { exclude: ['password'] },
+                    },
+                    {
+                        model: User,
+                        include: {
+                            model: UserProfile,
+                        },
+                        attributes: { exclude: ['password'] },
+                    },
+                ],
+            });
+            const doc = new PDFDocument
+
+            res.setHeader('Content-Type', 'application/pdf');
+            res.setHeader('Content-Disposition', 'attachment; filename="appointment_booking1.pdf"');
+
+            doc.pipe(res);
+
+            doc.fontSize(16).text('Appointment Booking Confirmation', { align: 'center' });
+            doc.text('==============================================', { align: 'center' })
+            doc.text('')
+            doc.fontSize(12).text(`Doctor: ${appointment.Doctor.formatName}`, { align: 'center' });
+            doc.text(`Patient: ${appointment.User.UserProfile.formatNameUser}`, { align: 'center' });
+            doc.text(`Date: ${appointment.formatAppointmentDate}`, { align: 'center' });
+            doc.text(`Location: ${appointment.location}`, { align: 'center' });
+            doc.text('============================================================', { align: 'center' })
+
+            doc.text('')
+            doc.text('')
+
+            doc.fontSize(10).text('Thank you for booking your appointment!', { align: 'center' });
+
+            doc.end();
+
+            doc.on('finish', function () {
+                res.redirect(`/user/${userId}/doctor/listAppointment`);
+            });
+
+        } catch (error) {
+            console.log(error)
+            res.send(error)
+        }
+    }
 
 }
 

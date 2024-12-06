@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%- include('../partials/scripts') %>
+        <link rel="stylesheet" href="/style.css">
+
         <title>Document</title>
 </head>
 
@@ -39,12 +41,13 @@
                                 <% }else{%>
                                     <div class="d-flex justify-content-center align-items-center text-center">
 
-                                        <table class="table ms-5" style="width: 800px;">
+                                        <table class="table ms-5" style="width: 1000px;">
                                             <thead>
                                                 <tr>
                                                     <th scope="col">No</th>
                                                     <th scope="col">Name</th>
                                                     <th scope="col">Appointment Date</th>
+                                                    <th scope="col">Location</th>
                                                     <th scope="col">Status</th>
                                                     <th scope="col">Action</th>
                                                 </tr>
@@ -62,20 +65,30 @@
                                                             <%= el.Appointment.formatAppointmentDate %>
                                                         </td>
                                                         <td>
+                                                            <%= el.Appointment.location %>
+                                                        </td>
+                                                        <td>
                                                             <%= el.Appointment.status %>
                                                         </td>
                                                         <td>
-                                                            <% if (el.Appointment.status==='pending' ||
-                                                                el.Appointment.status==='confirmed' ) { %>
+                                                            <% if (el.Appointment.status==='pending' ) { %>
                                                                 <a class="btn btn-warning btn-sm"
                                                                     href="/user/<%= appointmentUser.id%>/doctor/listAppointment/<%= el.id %>/cancel">Batalkan
                                                                     Appointment</a>
-                                                                <% }else{%>
-                                                                    <a class="btn btn-danger btn-sm"
-                                                                        href="/user/<%= appointmentUser.id%>/doctor/listAppointment/<%= el.id %>/delete"
-                                                                        onclick="return confirm('Jika anada menghapus Appointment maka data Appointment anda akan dihapus')">Hapus
-                                                                        Appointment</a>
-                                                                    <%} %>
+                                                                <% }else if( el.Appointment.status==='confirmed' ){%>
+                                                                    <a class="btn btn-success btn-sm"
+                                                                        href="/user/<%= appointmentUser.id%>/doctor/listAppointment/<%= el.id %>/cancel">Appointment
+                                                                        Disetujui</a>
+                                                                    <a class="btn btn-info btn-sm"
+                                                                        href="/user/<%= appointmentUser.id%>/doctor/listAppointment/<%= el.id %>/invoice">
+                                                                        Download
+                                                                        Invoice</a>
+                                                                    <%}else{%>
+                                                                        <a class="btn btn-danger btn-sm"
+                                                                            href="/user/<%= appointmentUser.id%>/doctor/listAppointment/<%= el.id %>/delete"
+                                                                            onclick="return confirm('Jika anada menghapus Appointment maka data Appointment anda akan dihapus')">Hapus
+                                                                            Appointment</a>
+                                                                        <%} %>
                                                         </td>
                                                     </tr>
                                                     <% }) %>

@@ -1,20 +1,122 @@
 [
     {
-        "username": "admin1",
-        "email": "john.doe@example.com",
+        "username": "wahyudi",
+        "email": "budi1@example.com",
         "password": "123456789",
         "role": "admin"
     },
     {
-        "username": "admin2",
-        "email": "jane.doe@example.com",
+        "username": "criserlangga",
+        "email": "budi2@example.com",
         "password": "123456789",
         "role": "admin"
     },
     {
-        "username": "admin3",
-        "email": "alice.smith@example.com",
+        "username": "andi1",
+        "email": "andi1@example.com",
+        "password": "123456789",
+        "role": "user"
+    },
+    {
+        "username": "andi2",
+        "email": "andi2@example.com",
+        "password": "123456789",
+        "role": "user"
+    },
+    {
+        "username": "siti1",
+        "email": "siti1@example.com",
         "password": "123456789",
         "role": "admin"
+    },
+    {
+        "username": "siti2",
+        "email": "siti2@example.com",
+        "password": "123456789",
+        "role": "admin"
+    },
+    {
+        "username": "yudi1",
+        "email": "yudi1@example.com",
+        "password": "123456789",
+        "role": "user"
+    },
+    {
+        "username": "yudi2",
+        "email": "yudi2@example.com",
+        "password": "123456789",
+        "role": "user"
+    },
+    {
+        "username": "maria1",
+        "email": "maria1@example.com",
+        "password": "123456789",
+        "role": "user"
+    },
+    {
+        "username": "maria2",
+        "email": "maria2@example.com",
+        "password": "123456789",
+        "role": "user"
+    },
+    {
+        "username": "joko1",
+        "email": "joko1@example.com",
+        "password": "123456789",
+        "role": "admin"
+    },
+    {
+        "username": "joko2",
+        "email": "joko2@example.com",
+        "password": "123456789",
+        "role": "admin"
+    },
+    {
+        "username": "rani1",
+        "email": "rani1@example.com",
+        "password": "123456789",
+        "role": "user"
+    },
+    {
+        "username": "rani2",
+        "email": "rani2@example.com",
+        "password": "123456789",
+        "role": "user"
+    },
+    {
+        "username": "david1",
+        "email": "david1@example.com",
+        "password": "123456789",
+        "role": "admin"
+    },
+    {
+        "username": "david2",
+        "email": "david2@example.com",
+        "password": "123456789",
+        "role": "admin"
+    },
+    {
+        "username": "nina1",
+        "email": "nina1@example.com",
+        "password": "123456789",
+        "role": "user"
+    },
+    {
+        "username": "nina2",
+        "email": "nina2@example.com",
+        "password": "123456789",
+        "role": "user"
+    },
+    {
+        "username": "anto1",
+        "email": "anto1@example.com",
+        "password": "123456789",
+        "role": "user"
+    },
+    {
+        "username": "anto2",
+        "email": "anto2@example.com",
+        "password": "123456789",
+        "role": "user"
     }
 ]

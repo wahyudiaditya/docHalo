@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%- include('../partials/scripts') %>
+        <link rel="stylesheet" href="/style.css">
         <title>Document</title>
 </head>
 
@@ -39,6 +40,18 @@
                                                     </option>
                                                     <% }) %>
                                             </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Pilih Lokasi</label>
+                                            <% let locationAppointment=['Bekasi','Malang','Jakarta','Bandung'] %>
+                                                <select class="form-select" name="location">
+                                                    <% locationAppointment.forEach(el=> { %>
+                                                        <option value="<%= el %>">
+                                                            <%= el %>
+                                                        </option>
+                                                        <% }) %>
+                                                </select>
                                         </div>
 
                                         <div class="form-group pt-3">

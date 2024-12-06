@@ -11,6 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Appointment.belongsTo(models.Doctor, { foreignKey: 'DoctorId' });
+      Appointment.belongsTo(models.User, { foreignKey: 'UserId' });
     }
 
     get formatAppointmentDate() {
@@ -75,7 +77,19 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
-    status: DataTypes.STRING
+    status: DataTypes.STRING,
+    location: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: 'Lokasi Appointment tidak boleh kosong'
+        },
+        notNull: {
+          msg: 'Lokasi Appointment tidak boleh kosong'
+        }
+      }
+    },
   }, {
     sequelize,
     modelName: 'Appointment',

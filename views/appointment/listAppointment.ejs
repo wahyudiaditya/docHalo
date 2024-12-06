@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%- include('../partials/scripts') %>
+        <link rel="stylesheet" href="/style.css">
+
         <title>Document</title>
 </head>
 
@@ -36,6 +38,8 @@
                                         <th scope="col">Id</th>
                                         <th scope="col">Name</th>
                                         <th scope="col">Appointment Date</th>
+                                        <th scope="col">Location</th>
+                                        <th scope="col">Status</th>
                                         <th scope="col">Action</th>
                                     </tr>
                                 </thead>
@@ -50,6 +54,12 @@
                                             </td>
                                             <td>
                                                 <%= el.Appointment.formatAppointmentDate %>
+                                            </td>
+                                            <td>
+                                                <%= el.Appointment.location %>
+                                            </td>
+                                            <td>
+                                                <%= el.Appointment.status %>
                                             </td>
                                             <td>
                                                 <% if (el.Appointment.status==='pending' ) { %>
